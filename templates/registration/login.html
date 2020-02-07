@@ -1,0 +1,91 @@
+<html lang="en">
+  <head>
+    <title>AdminX - Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "/dist/css/adminx.css" %}" media="screen" />
+  </head>
+  <body>
+    <div class="adminx-container d-flex justify-content-center align-items-center">
+      <div class="page-login">
+        <div class="text-center">
+          <a class="navbar-brand mb-4 h1" href="registration.html">
+            <img src="{% static "/demo/img/logo.png" %}" class="navbar-brand-image d-inline-block align-top mr-2" alt="">
+            AdminX
+          </a>
+        </div>
+
+        <div class="card mb-0">
+{#          <div class="card-body">#}
+{#            <a class="btn btn-labeled btn-block text-left btn-sm btn-facebook" href="#">#}
+{#              <span class="btn-label">#}
+{#                <i data-feather="facebook"></i>#}
+{#              </span>#}
+{#              Login with Facebook#}
+{#            </a>#}
+{#            <a class="btn btn-labeled btn-block text-left btn-sm btn-twitter" href="#">#}
+{#              <span class="btn-label">#}
+{#                <i data-feather="twitter"></i>#}
+{#              </span>#}
+{#              Login with Twitter#}
+{#            </a>#}
+{#          </div>#}
+{#          <div class="card-seperator">#}
+{#            <span>or</span>#}
+{#          </div>#}
+          <div class="card-body">
+            <form method="post" action="/login/">
+            {% csrf_token %}
+              <div class="form-group">
+                {% if form.errors %}
+                      <p>Логин или пароль не совпадают. Попробуйте снова</p>
+                {% endif %}
+                <label for="exampleDropdownFormEmail1" class="form-label">Email address</label>
+                <input type="text" name="username" class="form-control" required id="id_username" placeholder="Admin">
+              </div>
+              <div class="form-group">
+                <label for="exampleDropdownFormPassword1" class="form-label">Password</label>
+                <input type="password" name="password" class="form-control" required id="id_password" placeholder="Password">
+              </div>
+              <div class="form-group">
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="customCheck1">
+                  <label class="custom-control-label" for="customCheck1">Remember me</label>
+                </div>
+              </div>
+                <button type="submit" value="login" class="btn btn-sm btn-block btn-primary">Sign in</button>
+                <input type="hidden" name="next" value="{{ next }}" />
+            </form>
+          </div>
+          <div class="card-footer text-center">
+            <a href="#" onclick="notifications.fire('Ну что сказать, лох, это судьба!)')"><small>Forgot your password?</small></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- If you prefer jQuery these are the required scripts -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+    <script src="{% static "/dist/js/vendor.js" %}"></script>
+    <script src="{% static "/dist/js/adminx.js" %}"></script>
+    <script>
+      const notifications = new window.notifications({
+        notificationSound: '{% static "/dist/media/notification.mp3" %}',
+        volume: 1,
+        notification: {
+          autoHide: true,
+          playSound: true,
+          duration: 5000,
+          style: 'danger',
+          position: 'top',
+        }
+      });
+    </script>
+    <!-- If you prefer vanilla JS these are the only required scripts -->
+    <!-- script src="../dist/js/vendor.js"></script>
+    <script src="../dist/js/adminx.vanilla.js"></script-->
+  </body>
+</html>
