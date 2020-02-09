@@ -1,3 +1,5 @@
+{# TODO Исправить перевод, убрать мусор из файла #}
+{# TODO Также добавить нужные комментарии, т.к. это важный и самый главный шаблон #}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -115,6 +117,7 @@
                 {% if user.is_anonymous %}
                     {#                    <a href="/login/"><button type="button" class="btn btn-sm btn-primary">Log in</button></a>#}
                     <a class="btn btn-sm btn-primary" href="/login/">Log in</a>
+                    <a class="btn btn-sm btn-success" href="/register/">Sign up</a>
                 {% else %}
                     <a href="/logout/">
                         <button type="button" class="btn btn-sm btn-outline-danger">Sign out</button>
