@@ -22,6 +22,7 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('prod/', include('prod.urls')),
+    url(r'^register/$', views.MyRegisterFormView.as_view(), name="Страница регистрации"),
     url(r'^login/$', auth_views.LoginView.as_view(redirect_authenticated_user=True), name="Страница с логином"),
     url(r'^logout/$', views.logout_user, name="Вторичная страница для logout"),
     url(r'^$', views.main_page, name="Основная страница"),
