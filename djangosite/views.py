@@ -30,7 +30,7 @@ class MyRegisterFormView(FormView):
 
 # Основная страница
 def main_page(request):
-    return render(request, "main_page/wrapper.html")
+    return render(request, "main_page.html")
 
 
 # Выход из аккаунта
