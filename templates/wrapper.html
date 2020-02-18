@@ -101,11 +101,15 @@
             </li>
             <!-- Notifications -->
             <li class="nav-item dropdown">
-                <a class="navbar-brand h1 d-md-block" id="navbarDropdownMenuLink" data-toggle="dropdown" href="#">
-                    {{ user.username }}
-                    <img src="https://vk.com/images/camera_200.png"
-                         class="navbar-brand-image d-inline-block align-top mr-2" style="border-radius: 50%" alt="">
+                {% if user.is_authenticated %}
+                <a class="nav-link avatar-with-name" id="navbarDropdownMenuLink" data-toggle="dropdown" href="#">
+{#                    {{ user.username }}#}
+                    <img src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg" class="d-inline-block align-top" alt="">
                 </a>
+                {% else %}
+                    <a href="/login/"><button type="button" class="btn btn-sm btn-primary">Log in</button></a>
+                    <a href="/register/"><button type="button" class="btn btn-sm btn-success">Sign Up</button></a>
+                {% endif %}
                 {#                <a class="navbar-brand mb-0 h1 d-none d-md-block" id="navbarDropdownMenuLink" data-toggle="dropdown" href="#">#}
                 {#                    {{ user.username }}#}
                 {#                    <img src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg" class="navbar-brand-image d-inline-block align-top mr-2" alt="">#}
