@@ -1,9 +1,8 @@
 from django.contrib.auth import logout
-from django.shortcuts import render
-from django.shortcuts import redirect
-
 # Для регистрации
 from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import redirect
+from django.shortcuts import render
 from django.views.generic.edit import FormView
 
 

@@ -13,15 +13,17 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
 from django.conf.urls import url
+from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import path, include
+
 from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('prod/', include('prod.urls')),
+    path('admin/', admin.site.urls),  # перенаправление на приложение admin(встроено по умолчанию)
+    path('game/', include('game.urls')),  # перенаправление на приложение game
+    path('api/', include('api.urls')),  # перенаправление на приложение api
     url(r'^register/$', views.MyRegisterFormView.as_view(), name="Страница регистрации"),
     url(r'^login/$', auth_views.LoginView.as_view(redirect_authenticated_user=True), name="Страница с логином"),
     url(r'^logout/$', views.logout_user, name="Вторичная страница для logout"),

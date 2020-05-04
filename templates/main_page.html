@@ -1,6 +1,118 @@
 {% extends "wrapper.html" %}
-{% block title %}<title>Основная страница</title>{% endblock %}
+{% block title %}Основная страница{% endblock %}
 
 {% block content %}
-    <h2>Ну давай епта, доедешь - напиши</h2>
+    <div class="container-fluid">
+        <!-- BreadCrumb -->
+        <nav aria-label="breadcrumb" role="navigation">
+        </nav>
+
+        <div class="pb-3">
+            <h1>Основная страница</h1>
+        </div>
+
+        {#            <div class="row">#}
+        {#              <div class="col-md-6 col-lg-3 d-flex">#}
+        {#                <div class="card mb-grid w-100">#}
+        {#                  <div class="card-body d-flex flex-column">#}
+        {#                    <div class="d-flex justify-content-between mb-3">#}
+        {#                      <h5 class="card-title mb-0">#}
+        {#                        Outstanding Invoices#}
+        {#                      </h5>#}
+        {##}
+        {#                      <div class="card-title-sub">#}
+        {#                        $753.82#}
+        {#                      </div>#}
+        {#                    </div>#}
+        {##}
+        {#                    <div class="progress mt-auto">#}
+        {#                      <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">3/4</div>#}
+        {#                    </div>#}
+        {#                  </div>#}
+        {#                </div>#}
+        {#              </div>#}
+        {##}
+        {#              <div class="col-md-6 col-lg-3 d-flex">#}
+        {#                <div class="card mb-grid w-100">#}
+        {#                  <div class="card-body d-flex flex-column">#}
+        {#                    <div class="d-flex justify-content-between mb-3">#}
+        {#                      <h5 class="card-title mb-0">#}
+        {#                        Open Tasks#}
+        {#                      </h5>#}
+        {##}
+        {#                      <div class="card-title-sub">#}
+        {#                        18/30#}
+        {#                      </div>#}
+        {#                    </div>#}
+        {##}
+        {#                    <div class="progress mt-auto">#}
+        {#                      <div class="progress-bar" role="progressbar" style="width: 146%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>#}
+        {#                    </div>#}
+        {#                  </div>#}
+        {#                </div>#}
+        {#              </div>#}
+        {##}
+        {#              <div class="col-md-6 col-lg-3 d-flex">#}
+        {#                <div class="card border-0 bg-primary text-white text-center mb-grid w-100">#}
+        {#                  <div class="d-flex flex-row align-items-center h-100">#}
+        {#                    <div class="card-icon d-flex align-items-center h-100 justify-content-center">#}
+        {#                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="8" cy="21" r="2"></circle><circle cx="20" cy="21" r="2"></circle><path d="M5.67 6H23l-1.68 8.39a2 2 0 0 1-2 1.61H8.75a2 2 0 0 1-2-1.74L5.23 2.74A2 2 0 0 0 3.25 1H1"></path></svg>#}
+        {#                    </div>#}
+        {#                    <div class="card-body">#}
+        {#                      <div class="card-info-title">Sales</div>#}
+        {#                      <h3 class="card-title mb-0">#}
+        {#                        768#}
+        {#                      </h3>#}
+        {#                    </div>#}
+        {#                  </div>#}
+        {#                </div>#}
+        {#              </div>#}
+        {##}
+        {#              <div class="col-md-6 col-lg-3 d-flex">#}
+        {#                <div class="card border-0 bg-success text-white text-center mb-grid w-100">#}
+        {#                  <div class="d-flex flex-row align-items-center h-100">#}
+        {#                    <div class="card-icon d-flex align-items-center h-100 justify-content-center">#}
+        {#                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>#}
+        {#                    </div>#}
+        {#                    <div class="card-body">#}
+        {#                      <div class="card-info-title">Sign Ups (this week)</div>#}
+        {#                      <h3 class="card-title mb-0">#}
+        {#                        1,258#}
+        {#                      </h3>#}
+        {#                    </div>#}
+        {#                  </div>#}
+        {#                </div>#}
+        {#              </div>#}
+        {#            </div>#}
+
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <div class="card-header-title">Информация</div>
+                    </div>
+                    <div class="card-body collapse show" id="card1">
+                        <h4 class="card-title">Основная информация </h4>
+                        <p class="card-text">Сайт был создан для проекта по дисциплине "Основы программирования", чтобы
+                            показать работу Django, его приложений и возможностей. Так как я не являюсь дизайнером и не
+                            обладаю креативом, сайт получился полупустым на компьютере, но с телефона все выглядит
+                            отлично.</p>
+                        <a href="/game/" class="btn btn-primary">Перейти к игре</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-header">
+                        Информация
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">Примечание</h4>
+                        <p class="card-text">Моей главной задачей было показать работу с базой данных, с её данными,
+                            моделями Django.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
