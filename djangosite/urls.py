@@ -22,7 +22,7 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),  # перенаправление на приложение admin(встроено по умолчанию)
-    path('game/', include('game.urls')),  # перенаправление на приложение game
+    path('tictactoe/', include('tictactoe.urls')),  # перенаправление на приложение tictactoe
     path('api/', include('api.urls')),  # перенаправление на приложение api
     url(r'^register/$', views.MyRegisterFormView.as_view(), name="Страница регистрации"),
     url(r'^login/$', auth_views.LoginView.as_view(redirect_authenticated_user=True), name="Страница с логином"),

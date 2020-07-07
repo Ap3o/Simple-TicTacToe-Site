@@ -22,7 +22,7 @@ def index(request):
             print(is_game_started)
             if len(is_game_started) != 0:
                 # Если есть, игрока перекинет на начатую ранее игру.
-                return redirect("/game/" + str(is_game_started[0]['id']))
+                return redirect("/tictactoe/" + str(is_game_started[0]['id']))
 
             game = form.create()
             # Пускай первым ходит компьютер. Сразу же сохраняем его ход и присылаем уведомление о начале игры
@@ -34,7 +34,7 @@ def index(request):
                                         notification_text="Вы начали игру №{0} ".format(
                                             game.id) + "против искусственного интеллекта, удачи!",
                                         notification_time=timezone.now(),
-                                        notification_type="game-start"
+                                        notification_type="tictactoe-start"
                                         )
             send_notify.save()
             return redirect(game)
@@ -58,7 +58,7 @@ def game(request, pk):
         # если другой пользователь зайдет в Вашу игру и попытается сыграть там
         if str(request.user.id) != str(game.player_o):
             return render(request, "game/game_second.html", {
-                'game': game, 'error': 'Не вы играете в этой партии!'})
+                'tictactoe': game, 'error': 'Не вы играете в этой партии!'})
 
         if form.is_valid():
             # Статус игры, чтобы не делать ложных ходов
@@ -73,5 +73,5 @@ def game(request, pk):
             # По-хорошему тут надо бы сделать ajax запрос, но что-то мне помешало это сделать.
             return redirect(game)
     return render(request, "game/game_second.html", {
-        'game': game
+        'tictactoe': game
     })

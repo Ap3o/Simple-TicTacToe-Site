@@ -60,7 +60,7 @@ class Game(models.Model):
                 if w == ('X', 'X', 'X'):
                     if self.game_ended == "false":
                         self.send_notify("Вы проиграли игру игру №{0} ".format(
-                            self.id) + "против искусственного интеллекта, увы!", "game-lose")
+                            self.id) + "против искусственного интеллекта, увы!", "tictactoe-lose")
                     self.game_ended = "true"
                     self.winner = "X"
                     return 'X'
@@ -68,7 +68,7 @@ class Game(models.Model):
                     if self.game_ended == "false":
                         self.send_notify(
                             "Вы выиграли игру №{0} ".format(self.id) + "против искусственного интеллекта, поздравляем!",
-                            "game-win")
+                            "tictactoe-win")
                     self.game_ended = "true"
                     self.winner = "O"
                     return 'O'
@@ -79,7 +79,7 @@ class Game(models.Model):
                 return is_win(board)
             if ' ' in board:
                 return None
-            self.send_notify("Вы сыграли в ничью в игре №{0}".format(self.id), "game-draw")
+            self.send_notify("Вы сыграли в ничью в игре №{0}".format(self.id), "tictactoe-draw")
             self.game_ended = "true"
             return ' '
         else:
@@ -116,8 +116,8 @@ class Game(models.Model):
     def play_auto(self):
         # метод с рандомным ходом
         while not self.is_game_over:
-            next = self.next_player
-            player = self.player_x if next == 'X' else self.player_o
+            next_player = self.next_player
+            player = self.player_x if next_player == 'X' else self.player_o
             if player != 'human':
                 index = random.randint(0, 8)  # первое значение
                 while True:
@@ -129,7 +129,7 @@ class Game(models.Model):
                     else:
                         break
                 board = list(self.board)
-                board[index] = next
+                board[index] = next_player
                 self.board = u''.join(board)
                 self.is_game_over
                 return
